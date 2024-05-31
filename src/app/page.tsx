@@ -1,95 +1,92 @@
-import Image from "next/image";
+"use client";
+import { useFlagship, useFsFlag } from "@flagship.io/react-sdk";
 import styles from "./page.module.css";
+import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
+  const [isQa, setIsQa] = useState(false);
+  const flagBtnColor = useFsFlag("qaBtnColor", "default");
+  const flagBtnTitle = useFsFlag("qaBtnTitle", "default");
+  const flatBackground = useFsFlag("background", "default");
+  const flag1 = useFsFlag("Flag 1", "default");
+  const flagMyFlag = useFsFlag("my_flag", "default");
+
+  const fs = useFlagship();
+
+  const handleIsQaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const checked = e.target.checked;
+    fs.updateContext({ isQA: checked });
+    fs.fetchFlags().then(() => {
+      setIsQa(checked);
+    });
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <div className="row mt-5">
+        <div className="col-12">
+          <h3 className="text-center">Home page</h3>
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="row mt-5">
+        <div className="col-12">
+          <h4>Visitor context</h4>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              checked={isQa}
+              onChange={handleIsQaChange}
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefault">
+              IsQa
+            </label>
+          </div>
+        </div>
       </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="row mt-5">
+        <div className="col-12">
+          <h4>Flags read in the current page:</h4>
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">Flag key</th>
+                <th scope="col">Flag Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>btnColor</td>
+                <td>{flagBtnColor.getValue()}</td>
+              </tr>
+              <tr>
+                <td>btnTitle</td>
+                <td>{flagBtnTitle.getValue()}</td>
+              </tr>
+              <tr>
+                <td>background</td>
+                <td>{flatBackground.getValue()}</td>
+              </tr>
+              <tr>
+                <td>flag 1</td>
+                <td>{flag1.getValue()}</td>
+              </tr>
+              <tr>
+                <td>my_flag</td>
+                <td>{flagMyFlag.getValue()}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </main>
+      <div className="row">
+        <div className="col-12">
+          <Link href="/about">Go to About page</Link>
+        </div>
+      </div>
+    </>
   );
 }
