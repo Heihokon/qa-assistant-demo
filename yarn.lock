@@ -41,22 +41,22 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@flagship.io/js-sdk@^4.0.0-alpha.0":
-  version "4.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@flagship.io/js-sdk/-/js-sdk-4.0.0-alpha.0.tgz#0f86278464da6643e044b052ccc2804f593b69c5"
-  integrity sha512-/sfESs1FsrJJcEPWjaZn/6Pu0L2lA8bWgLsY9ZqoBkhxMjv5bhY+y5gHtcMWwDQUNquy7CyKsyT/uxAP4xbj4g==
+"@flagship.io/js-sdk@^4.0.0-alpha.1":
+  version "4.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@flagship.io/js-sdk/-/js-sdk-4.0.0-alpha.1.tgz#9d59ffe0b29142ee9af84c3c80a89af96831b40b"
+  integrity sha512-ifn4GqzeIRRyYXYtPY3i1uzcZNJ5lOA6h2Ux3fDK8ag0S6+Almry+AOVwlZDXYCug5zyyM4OTsqAYB8su4A9SA==
   dependencies:
     events "^3.3.0"
     follow-redirects "^1.15.2"
     node-abort-controller "^3.1.1"
     node-fetch "^2.6.7"
 
-"@flagship.io/react-sdk@^4.0.0-alpha.0":
-  version "4.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@flagship.io/react-sdk/-/react-sdk-4.0.0-alpha.0.tgz#5958daaf1ad32a3ce0b247e0d917f60e24cc1906"
-  integrity sha512-BM6CbNQoPaeqT8jKHC9WiReL3G5preiE7OEgNJD7W4jCZLdOLEELvlU8JuP1sSakIjEZWQpQJS7RaPfEvNiRDg==
+"@flagship.io/react-sdk@^4.0.0-alpha.1":
+  version "4.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@flagship.io/react-sdk/-/react-sdk-4.0.0-alpha.1.tgz#34de0da93f200ed4b5647ed95c8e7d5721a74bed"
+  integrity sha512-3xXTuJahCiqfdbpB/LzPfnRTkOJjP6oYWNCx34K3J8Nl3xIxxZe979vrtt5xyweNwQaNjzu1Akcl9FH7ZliNMg==
   dependencies:
-    "@flagship.io/js-sdk" "^4.0.0-alpha.0"
+    "@flagship.io/js-sdk" "^4.0.0-alpha.1"
     encoding "^0.1.13"
 
 "@humanwhocodes/config-array@^0.11.14":

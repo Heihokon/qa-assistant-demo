@@ -11,6 +11,7 @@ export default function Home() {
   const flatBackground = useFsFlag("background", "default");
   const flag1 = useFsFlag("Flag 1", "default");
   const flagMyFlag = useFsFlag("my_flag", "default");
+  const flagKey2 = useFsFlag("key2", "default");
 
   const fs = useFlagship();
 
@@ -77,6 +78,10 @@ export default function Home() {
               <tr>
                 <td>my_flag</td>
                 <td>{flagMyFlag.getValue()}</td>
+              </tr>
+              <tr>
+                <td>key2</td>
+                <td>{flagKey2.getValue()}</td>
               </tr>
             </tbody>
           </table>
